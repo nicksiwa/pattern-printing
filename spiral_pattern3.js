@@ -13,7 +13,7 @@ function printSpiral(n) {
 
   let col = n % 2 === 0 ? divideN - 1 : divideN;
   let row = n % 2 === 0 ? divideN - 1 : divideN;
-  let boundary = 1;
+  let boundary = 2;
   let sizeLeft = 1;
   let flag = 2;
   let move = "d";
@@ -23,9 +23,9 @@ function printSpiral(n) {
     matrix[i] = new Array(n).fill(0);
   }
 
-  for (let i = 1; i <= n * n; i++) {
-    matrix[row][col] = i;
+  matrix[row][col] = 1;
 
+  for (let i = 2; i <= n * n; i++) {
     switch (move) {
       case "d":
         row += 1;
@@ -66,6 +66,8 @@ function printSpiral(n) {
           break;
       }
     }
+
+    matrix[row][col] = i;
   }
 
   let countNPowerDigit = (n * n).toString().length;

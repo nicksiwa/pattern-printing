@@ -10,9 +10,9 @@
 
 function printSpiral(n) {
   let matrix = new Array(n);
-  let col = 0;
+  let col = -1;
   let row = 0;
-  let boundary = n - 1;
+  let boundary = n;
   let sizeLeft = n - 1;
   let flag = 1;
   let move = "r";
@@ -22,15 +22,6 @@ function printSpiral(n) {
   }
 
   for (let i = 1; i <= n * n; i++) {
-    matrix[row][col] = i;
-    console.log('i', i)
-    console.log('row', row)
-    console.log('col', col)
-    console.log('boundary', boundary)
-    console.log('sizeLeft', sizeLeft)
-    console.log('flag', flag)
-    console.log('-------------------')
-
     switch (move) {
       case "r":
         col += 1;
@@ -71,6 +62,8 @@ function printSpiral(n) {
           break;
       }
     }
+
+    matrix[row][col] = i;
   }
 
   let countNPowerDigit = (n * n).toString().length;
@@ -87,4 +80,4 @@ function printSpiral(n) {
   }
 }
 
-printSpiral(2);
+printSpiral(5);
